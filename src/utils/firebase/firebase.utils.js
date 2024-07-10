@@ -6,6 +6,8 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,5 +31,15 @@ provider.setCustomParameters({
   prompt: "select_account", //everytime somebody interacts with our provider, we're forcing them to select an account
 });
 
-export const auth = getAuth();
+// I have a question in this
+
+export const auth = getAuth(); //You won't need multiple authentication that's why we write this
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+export const db = getFirestore(); //Export keyword is used to make db accessible in other parts of your application
+
+export const CreateUserDocumentFromUserAuth = async (userAuth) => {
+  const userDocRef = doc(db, "users", userAuth.uid);
+  const userSnapshot = await getDoc(userDocRef);
+  console.log(userSnapshot.exists());
+};
