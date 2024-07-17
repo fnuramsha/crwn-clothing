@@ -25,16 +25,19 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 // In order to use Google auth provider, so create provider object using GoogleAuthProvider class
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 // This is primarliy for the Google Auth provider
-provider.setCustomParameters({
+googleProvider.setCustomParameters({
   prompt: "select_account", //everytime somebody interacts with our provider, we're forcing them to select an account
 });
 
 // I have a question in this
 
 export const auth = getAuth(); //You won't need multiple authentication that's why we write this
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore(); //Export keyword is used to make db accessible in other parts of your application
 
