@@ -3,6 +3,7 @@ import { createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebas
 import { CreateUserDocumentFromUserAuth } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../Button/button.component";
+import "./sign-up-form.styles.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -45,6 +46,7 @@ const SignUpForm = () => {
   };
   // This approach ensures that when an input field changes, the corresponding property in the
   // formFields state object is updated correctly based on the name attribute of the input field.
+  // Also we write name in array to get the dynamic keys otherwise it will take name as a key
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
