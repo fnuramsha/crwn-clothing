@@ -1,5 +1,7 @@
 import Button from "../Button/button.component";
 import "./cart-dropdown.styles.scss";
+import CartItem from "../cart-item/cart-item.component";
+
 const CartDropdown = () => {
   return (
     <div className="cart-dropdown-container">
