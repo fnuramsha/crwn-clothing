@@ -1,12 +1,10 @@
-// import SHOP_DATA from "../../shop-data.json";
-import { useContext } from "react";
-
-import { ProductsContext } from "../../components/contexts/product-context";
 import ProductCard from "../../components/product-card/product-card.component";
+import { useContext } from "react";
+import { ProductsContext } from "../../components/contexts/product-context";
 import "./shop.styles.scss";
 
 const Shop = () => {
-  // usage of useContext
+  // ask
   const { products } = useContext(ProductsContext);
   return (
     <div className="products-container">
@@ -16,4 +14,5 @@ const Shop = () => {
     </div>
   );
 };
+
 export default Shop;

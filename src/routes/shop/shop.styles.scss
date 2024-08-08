@@ -4,5 +4,18 @@
     column-gap: 10px;
     row-gap: 50px;
 
-
+.button-style {
+    position: absolute; /* Position the button absolutely within the container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust the position to be centered */
+  }
 }
+
+
+// }
+// .button-style {
+//     text-align: center;
+    
+// }
+
