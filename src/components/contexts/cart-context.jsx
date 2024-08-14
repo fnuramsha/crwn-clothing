@@ -18,21 +18,6 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
-// For checkout page
-
-const incrementItem = (checkOutItems, productToAdd) => {
-  const existingItem = checkOutItems.find(
-    (checkOutItem) => checkOutItem.id === productToAdd.id
-  );
-  if (existingItem) {
-    return checkOutItems.map((checkOutItem) =>
-      checkOutItem.id === productToAdd.id
-        ? { ...checkOutItems, quantity: checkOutItem.quantity + 1 }
-        : checkOutItem
-    );
-  }
-};
-
 export const CartContext = createContext({
   isCartOpen: false,
   setCartOpen: () => {},
@@ -61,10 +46,6 @@ export const CartProvider = ({ children }) => {
   const addItemToCart = (productToAdd) => {
     // Do I need to add new item or its existing in cartItems already
     setCartItems(addCartItem(cartItems, productToAdd));
-  };
-
-  const addItemInCheckoutCart = (productToAdd) => {
-    setCheckOutItems(incrementItem(checkOutItems, productToAdd));
   };
 
   const value = {
